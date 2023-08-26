@@ -1,0 +1,36 @@
+.drop-size{
+    width: 370px;
+}
+
+.menu-size {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.chart-size{
+    width: 370px;
+    height: 370px;
+}
+
+.button-style{
+    border-radius: 0;
+    border: none;
+    width: 370px;
+}
+
+.menu-size::-webkit-scrollbar {
+    width: 10px;
+}
+
+.menu-size::-webkit-scrollbar-thumb {
+    background-color: #0059ff;
+    border-radius: 5px;
+}
+
+.menu-size::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.menu-size::-webkit-scrollbar-track {
+    background-color: #eee;
+}
