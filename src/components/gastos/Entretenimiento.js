@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 
-const Entretenimineto = ({setEntreteniminetoData}) => {
+const Entretenimiento = ({setEntreteniminetoData}) => {
     const formDataEntretenimiento = {
         RestaurantesRange: 0,
         CafeRange: 0,
@@ -75,4 +75,4 @@ const Entretenimineto = ({setEntreteniminetoData}) => {
     );
 }
 
-export default Entretenimineto
+export default Entretenimiento

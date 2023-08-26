@@ -6,8 +6,8 @@ import Transporte from './Transporte'
 import Salud from './Salud'
 import Infantil from './Infantil'
 import Deudas from './Deudas'
-import GastosChart from './GastosChart'
-import Entretenimineto from './Entretenimineto'
+import Entretenimiento from './Entretenimiento'
+import GastosChart from '../GastosChart'
 
 const FormGastos = () => {
     const [ ViviendaServiciosData, setViviendaServiciosData ] = useState([]);
@@ -40,7 +40,7 @@ const FormGastos = () => {
                             Entretenimiento
                         </button>
                         <ul className="dropdown-menu col-12 menu-size">
-                            <Entretenimineto setEntreteniminetoData={setEntreteniminetoData} />
+                            <Entretenimiento setEntreteniminetoData={setEntreteniminetoData} />
                         </ul>
                     </div>
                     <div className="dropdown drop-size">
