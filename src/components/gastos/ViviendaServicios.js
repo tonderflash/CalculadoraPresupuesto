@@ -46,12 +46,8 @@ const ViviendaServicios = ({ setViviendaServiciosData }) => {
     setFormData(updatedForm);
     setViviendaServiciosData(updatedForm);
   };
-  console.log(formData);
 
-  const campos = useMemo(
-    () => formData.slice(1), // Excluimos el primer elemento que es solo un label
-    []
-  );
+  const campos = useMemo(() => formData.slice(1), []);
 
   return (
     <div>
