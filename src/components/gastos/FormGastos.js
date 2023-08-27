@@ -23,10 +23,6 @@ const FormGastos = () => {
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <div className="drop-size mb-2">
-                        <label htmlFor="IngresosInput" className="form-label">Ingresos Mensuales</label>
-                        <input type="text" className="form-control" id="IngresosInput" />
-                    </div>
                     <div className="dropdown drop-size">
                         <button className="btn btn-secondary dropdown-toggle button-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Vivienda y Servicios
