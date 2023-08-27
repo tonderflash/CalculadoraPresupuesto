@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import IngresosEmpleo from './IngresosEmpleo'
 import IngresosInversiones from './IngresosInversiones'
 import IngresosDonaciones from './IngresosDonaciones'
@@ -12,11 +12,20 @@ const FormIngresos = () => {
     const [formEmprendimiento, setFormEmprendimiento] = useState([]);
     const [formIrregualres, setFormIrregulares] = useState([]);
 
-    console.log(formEmpleo);    
-    console.log(formInversiones);
-    console.log(formDonaciones);
-    console.log(formEmprendimiento);
-    console.log(formIrregualres);
+    const [consolidatedDataIngresos, setConsolidatedDataIngresos] = useState({});
+
+    useEffect(() => {
+        setConsolidatedDataIngresos({
+            formEmpleo,
+            formInversiones,
+            formDonaciones,
+            formEmprendimiento,
+            formIrregualres
+        });
+    }, [formEmpleo, formInversiones, formDonaciones, formEmprendimiento, formIrregualres]);
+
+    console.log(consolidatedDataIngresos);
+
 
     return (
         <div className="container">
@@ -37,7 +46,7 @@ const FormIngresos = () => {
                         <ul className="dropdown-menu col-12 menu-size">
                             <IngresosInversiones
                                 setFormInversiones={setFormInversiones}
-                             />
+                            />
                         </ul>
                     </div>
                     <div className="dropdown drop-size">
@@ -46,7 +55,7 @@ const FormIngresos = () => {
                         </button>
                         <ul className="dropdown-menu col-12 menu-size">
                             <IngresosDonaciones
-                                setFormDonaciones={setFormDonaciones}   
+                                setFormDonaciones={setFormDonaciones}
                             />
                         </ul>
                     </div>
@@ -55,24 +64,21 @@ const FormIngresos = () => {
                             Ingresos por Emprendimiento
                         </button>
                         <ul className="dropdown-menu col-12 menu-size">
-                            <IngresosEmprendimiento 
+                            <IngresosEmprendimiento
                                 setFormEmprendimiento={setFormEmprendimiento}
                             />
                         </ul>
                     </div>
                     <div className="dropdown drop-size">
                         <button className="btn btn-primary dropdown-toggle button-style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Ingresos Irregulares
+                            Ingresos Irregulares
                         </button>
                         <ul className="dropdown-menu col-12 menu-size">
-                            <IngresosIrregulares 
+                            <IngresosIrregulares
                                 setFormIrregulares={setFormIrregulares}
-                            /> 
+                            />
                         </ul>
                     </div>
-                </div>
-                <div className="col-md-6">
-
                 </div>
             </div>
         </div>

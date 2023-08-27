@@ -27,7 +27,6 @@ const IngresoAhorros = ({ setFormAhorros }) => {
         setFormIngresoAhorros(updatedForm);
         setFormData(updatedForm);
         setFormAhorros(updatedForm);
-
     };
 
     const handleInputChange = (event) => {

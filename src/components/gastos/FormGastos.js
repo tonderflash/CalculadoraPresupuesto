@@ -7,7 +7,6 @@ import Salud from "./Salud";
 import Infantil from "./Infantil";
 import Deudas from "./Deudas";
 import Entretenimiento from "./Entretenimiento";
-import GastosChart from "../GastosChart";
 
 const FormGastos = () => {
   const [ViviendaServiciosData, setViviendaServiciosData] = useState([]);
@@ -19,10 +18,10 @@ const FormGastos = () => {
   const [DeudasData, setDeudasData] = useState([]);
   const [EntretenimientoData, setEntreteniminetoData] = useState([]);
 
-  const [consolidatedData, setConsolidatedData] = useState({});
+  const [consolidatedDataGastos, setConsolidatedDataGastos] = useState({});
 
   useEffect(() => {
-    setConsolidatedData({
+    setConsolidatedDataGastos({
       ViviendaServiciosData,
       SuministroHogarData,
       AlimentosComestiblesData,
@@ -42,7 +41,8 @@ const FormGastos = () => {
     DeudasData,
     EntretenimientoData,
   ]);
-  console.log(consolidatedData);
+  
+  console.log(consolidatedDataGastos);
 
   return (
     <div className="container">
