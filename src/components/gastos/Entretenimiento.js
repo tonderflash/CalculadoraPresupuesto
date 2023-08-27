@@ -1,78 +1,97 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState, useMemo } from "react";
 
-const Entretenimiento = ({setEntreteniminetoData}) => {
-    const formDataEntretenimiento = {
-        RestaurantesRange: 0,
-        CafeRange: 0,
-        DeliverysRange: 0,
-        CineRange: 0,
-        HobbiesRange: 0,
-        LoteriaApuestasRange: 0,
-        MembresiasRange: 0,
-        SuscripcionesRange: 0,
-        OtrosRange: 0,
-    }
+const Entretenimiento = ({ setEntreteniminetoData }) => {
+  const formDataEntretenimiento = [
+    { label: "Entretenimiento" },
+    { id: "RestaurantesInput", value: 0 },
+    { id: "CafeInput", value: 0 },
+    { id: "DeliverysInput", value: 0 },
+    { id: "CineInput", value: 0 },
+    { id: "HobbiesInput", value: 0 },
+    { id: "LoteriaApuestasInput", value: 0 },
+    { id: "MembresiasInput", value: 0 },
+    { id: "SuscripcionesInput", value: 0 },
+    { id: "OtrosInput", value: 0 },
+  ];
 
-    const [formEntretenimiento, setEntretenimiento] = useState(formDataEntretenimiento);
-    const handleRangeChange = (event) => {
-        const { id, value } = event.target;
-        setEntretenimiento((prevData) => ({ ...prevData, [id]: value }));
-        setEntreteniminetoData(formEntretenimiento);  
-    };
+  const [formData, setFormData] = useState(formDataEntretenimiento);
 
-    const campos = useMemo(() => [
-        { label: "Restaurantes", id: "RestaurantesInput", idRange: "RestaurantesRange" },
-        { label: "Café", id: "CafeInput", idRange: "CafeRange" },
-        { label: "Deliverys", id: "DeliverysInput", idRange: "DeliverysRange" },
-        { label: "Cine", id: "CineInput", idRange: "CineRange" },
-        { label: "Hobbies", id: "HobbiesInput", idRange: "HobbiesRange" },
-        { label: "Lotería y Apuestas", id: "LoteriaApuestasInput", idRange: "LoteriaApuestasRange" },
-        { label: "Membresias", id: "MembresiasInput", idRange: "MembresiasRange" },
-        { label: "Suscripciones", id: "SuscripcionesInput", idRange: "SuscripcionesRange" },
-        { label: "Otros", id: "OtrosInput", idRange: "OtrosRange" },
-    ], []);
+  const handleRangeChange = (event) => {
+    const { id, value } = event.target;
+    const updatedForm = formData.map((item) => {
+      if (item.id === id) {
+        return { ...item, value: Number(value) };
+      }
+      return item;
+    });
 
-    useEffect(() => {
-        campos.forEach((campo) => {
-            const inputNumber = document.getElementById(campo.id);
-            if (inputNumber) {
-                inputNumber.value = formEntretenimiento[campo.idRange] || 0;
-            }
-        });
-    }, [formEntretenimiento, campos]);
+    setFormData(updatedForm);
+    setEntreteniminetoData(updatedForm);
+  };
 
-    return (
-        <div>
-            <div>
-                {campos.map((campo, index) => (
-                    <div className="form-group m-1 p-1" key={index}>
-                        <label htmlFor={campo.id}>{campo.label}</label>
-                        <div className="input-group">
-                            <span className="input-group-text">$RD</span>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id={campo.id}
-                                name={campo.id}
-                                value={formEntretenimiento[campo.id] || 0}
-                            />
-                        </div>
-                        <div className='mx-4'>
-                            <input
-                                type="range"
-                                className="form-range"
-                                min="0"
-                                max="100000"
-                                id={campo.idRange}
-                                value={formEntretenimiento[campo.idRange] || 0}
-                                onChange={handleRangeChange}
-                            />
-                        </div>
-                    </div>
-                ))}
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    const rangeId = id.replace("Input", "");
+
+    const updatedForm = formData.map((item) => {
+      if (item.id === rangeId) {
+        return { ...item, value: Number(value) };
+      }
+      return item;
+    });
+
+    setFormData(updatedForm);
+    setEntreteniminetoData(updatedForm);
+  };
+
+  const campos = useMemo(
+    () => [
+      { id: "RestaurantesInput", label: "Restaurantes" },
+      { id: "CafeInput", label: "Café" },
+      { id: "DeliverysInput", label: "Deliverys" },
+      { id: "CineInput", label: "Cine" },
+      { id: "HobbiesInput", label: "Hobbies" },
+      { id: "LoteriaApuestasInput", label: "Lotería y Apuestas" },
+      { id: "MembresiasInput", label: "Membresias" },
+      { id: "SuscripcionesInput", label: "Suscripciones" },
+      { id: "OtrosInput", label: "Otros" },
+    ],
+    []
+  );
+
+  return (
+    <div>
+      <div>
+        {campos.map((campo, index) => (
+          <div className="form-group m-1 p-1" key={index}>
+            <label htmlFor={campo.id}>{campo.label}</label>
+            <div className="input-group">
+              <span className="input-group-text">$RD</span>
+              <input
+                type="text"
+                className="form-control"
+                id={campo.id}
+                name={campo.id}
+                value={formData.find((item) => item.id === campo.id).value || 0}
+                onChange={handleInputChange}
+              />
             </div>
-        </div>
-    );
-}
+            <div className="mx-4">
+              <input
+                type="range"
+                className="form-range"
+                min="0"
+                max="100000"
+                id={campo.id}
+                value={formData.find((item) => item.id === campo.id).value || 0}
+                onChange={handleRangeChange}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default Entretenimiento
+export default Entretenimiento;

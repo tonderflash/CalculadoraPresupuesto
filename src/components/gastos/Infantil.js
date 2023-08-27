@@ -1,68 +1,85 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useState, useMemo } from "react";
 
-const Infantil = ({setInfantilData}) => {
-    const formDataInfantil = {
-        CuidoRange: 0,
-        ActividadesSocialesRange: 0,
-        OtrosRange: 0,
-    }
+const Infantil = ({ setInfantilData }) => {
+  const formDataInfantil = [
+    { label: "Infantil" },
+    { id: "CuidoInput", value: 0 },
+    { id: "ActividadesSocialesInput", value: 0 },
+    { id: "OtrosInput", value: 0 },
+  ];
 
-    const [formInfantil, setFormInfantil] = useState(formDataInfantil);
+  const [formData, setFormData] = useState(formDataInfantil);
 
-    const handleRangeChange = (event) => {
-        const { id, value } = event.target;
-        const updatedFormInfantil = { ...formInfantil, [id]: value };
-        setFormInfantil(updatedFormInfantil);
-        setInfantilData(formInfantil);
-    };
+  const handleRangeChange = (event) => {
+    const { id, value } = event.target;
+    const updatedForm = formData.map((item) => {
+      if (item.id === id) {
+        return { ...item, value: Number(value) };
+      }
+      return item;
+    });
 
-    const campos = useMemo(() => [
-        { label: "Cuido", id: "CuidoInput", idRange: "CuidoRange" },
-        { label: "Actividades Sociales", id: "ActividadesSocialesInput", idRange: "ActividadesSocialesRange" },
-        { label: "Otros", id: "OtrosInput", idRange: "OtrosRange" },
-    ], []);
+    setFormData(updatedForm);
+    setInfantilData(updatedForm);
+  };
 
-    useEffect(() => {
-        campos.forEach((campo) => {
-            const inputNumber = document.getElementById(campo.id);
-            if (inputNumber) {
-                inputNumber.value = formInfantil[campo.idRange] || 0;
-            }
-        });
-    }, [formInfantil, campos]);
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    const rangeId = id.replace("Input", "");
 
-    return (
-        <div>
-            <div>
-                {campos.map((campo, index) => (
-                    <div className="form-group m-1 p-1" key={index}>
-                        <label htmlFor={campo.id}>{campo.label}</label>
-                        <div className="input-group">
-                            <span className="input-group-text">$RD</span>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id={campo.id}
-                                name={campo.id}
-                                value={formInfantil[campo.id] || 0}
-                            />
-                        </div>
-                        <div className='mx-4'>
-                            <input
-                                type="range"
-                                className="form-range"
-                                min="0"
-                                max="100000"
-                                id={campo.idRange}
-                                value={formInfantil[campo.idRange] || 0}
-                                onChange={handleRangeChange}
-                            />
-                        </div>
-                    </div>
-                ))}
+    const updatedForm = formData.map((item) => {
+      if (item.id === rangeId) {
+        return { ...item, value: Number(value) };
+      }
+      return item;
+    });
+
+    setFormData(updatedForm);
+    setInfantilData(updatedForm);
+  };
+
+  const campos = useMemo(
+    () => [
+      { id: "CuidoInput", label: "Cuido" },
+      { id: "ActividadesSocialesInput", label: "Actividades Sociales" },
+      { id: "OtrosInput", label: "Otros" },
+    ],
+    []
+  );
+
+  return (
+    <div>
+      <div>
+        {campos.map((campo, index) => (
+          <div className="form-group m-1 p-1" key={index}>
+            <label htmlFor={campo.id}>{campo.label}</label>
+            <div className="input-group">
+              <span className="input-group-text">$RD</span>
+              <input
+                type="text"
+                className="form-control"
+                id={campo.id}
+                name={campo.id}
+                value={formData.find((item) => item.id === campo.id).value || 0}
+                onChange={handleInputChange}
+              />
             </div>
-        </div>
-    );
-}
+            <div className="mx-4">
+              <input
+                type="range"
+                className="form-range"
+                min="0"
+                max="100000"
+                id={campo.id}
+                value={formData.find((item) => item.id === campo.id).value || 0}
+                onChange={handleRangeChange}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default Infantil
+export default Infantil;
