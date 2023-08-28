@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import BudgetContext from "./GastosContext";
 import CurrencyInput from "react-currency-input-field";
+import "./customStyles.css";
 
 const ViviendaServicios = ({ expense, expenseIndex, budgetGroup }) => {
   const { budgetExpenses, setExpense } = useContext(BudgetContext);
@@ -32,12 +33,14 @@ const ViviendaServicios = ({ expense, expenseIndex, budgetGroup }) => {
     <div>
       <div>
         {expense.subExpenses.map((campo, index) => (
-          <div className="form-group m-1 p-1" key={index}>
-            <label htmlFor={campo.id + "Input"}>{campo.id}</label>
-            <div className="input-group">
-              <span className="input-group-text">$RD</span>
+          <div className="form-group  p-1" key={index}>
+            <label style={{ fontSize: "0.9em" }} htmlFor={campo.id + "Input"}>
+              {campo.id}
+            </label>
+            <div className="input-group-sm d-flex" style={{ height: "37px" }}>
+              <span className="input-group-text rounded-0">$RD</span>
               <CurrencyInput
-                className="form-control"
+                className="form-control rounded-0 "
                 id={campo.id + "Input"}
                 name={campo.id + "Input"}
                 value={campo.value || 0}
@@ -51,7 +54,7 @@ const ViviendaServicios = ({ expense, expenseIndex, budgetGroup }) => {
                 onChange={}
               /> */}
             </div>
-            <div className="mx-4">
+            <div>
               <input
                 type="range"
                 className="form-range"
