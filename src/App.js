@@ -4,6 +4,48 @@ import BudgetContext from "./components/gastos/GastosContext";
 
 function App() {
   const [budgetExpenses, setBudgetExpenses] = useState({
+    consolidatedDataIngresos: [
+      {
+        nombre: "Ingresos por Salario",
+        value: 0,
+        subExpenses: [
+          { id: "salario", value: 0 },
+          { id: "incentivo", value: 0 },
+          { id: "pensiones", value: 0 },
+        ],
+      },
+      {
+        nombre: "Ingresos por inversiones",
+        value: 0,
+        subExpenses: [
+          { id: "AlquileresInput", value: 0 },
+          { id: "AlquileresInput", value: 0 },
+          { id: "DividendosInput", value: 0 },
+          { id: "GananciasDeCapitalInput", value: 0 },
+        ],
+      },
+      {
+        nombre: "Ingresos por Donaciones",
+        value: 0,
+        subExpenses: [
+          { id: "DonacionesInput", value: 0 },
+          { id: "SubsidiosInput", value: 0 },
+        ],
+      },
+      {
+        nombre: "Ingresos por Emprendimiento",
+        value: 0,
+        subExpenses: [
+          { id: "VentasBienesServiciosInput", value: 0 },
+          { id: "FreelanceInput", value: 0 },
+        ],
+      },
+      {
+        nombre: "Ingresos por Irregulares",
+        value: 0,
+        subExpenses: [{ id: "Otros Ingresos", value: 0 }],
+      },
+    ],
     consolidatedDataAhorros: [
       {
         color: "teal",
@@ -20,13 +62,6 @@ function App() {
       },
     ],
     consolidatedDataGastos: [
-      // { color: "green", nombre: "Entretenimiento", value: 0 },
-      // { color: "orange", nombre: "Suministro del Hogar", value: 0 },
-      // { color: "red", nombre: "Alimentos y Comestibles", value: 0 },
-      // { color: "purple", nombre: "Transporte", value: 0 },
-      // { color: "yellow", nombre: "Salud", value: 0 },
-      // { color: "pink", nombre: "Infantil", value: 0 },
-      // { color: "gray", nombre: "Deudas", value: 0 },
       {
         color: "blue",
         nombre: "Vivienda y Servicios",
