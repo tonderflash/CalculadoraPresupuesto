@@ -12,13 +12,15 @@ const SuministroHogar = ({ setSuministroHogarData }) => {
     { id: "otrosInput", value: 0 },
   ];
 
-  const [formSuministroHogar, setFormSuministroHogar] = useState(formDataSuministroHogar);
+  const [formSuministroHogar, setFormSuministroHogar] = useState(
+    formDataSuministroHogar
+  );
   const [formData, setFormData] = useState(formDataSuministroHogar);
 
   const handleRangeChange = (event) => {
     const { id, value } = event.target;
 
-    const updatedForm = formSuministroHogar.map(item => {
+    const updatedForm = formSuministroHogar.map((item) => {
       if (item.id === id) {
         return { ...item, value: Number(value) };
       }
@@ -32,9 +34,9 @@ const SuministroHogar = ({ setSuministroHogarData }) => {
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-    const rangeId = id.replace('Input', '');
+    const rangeId = id.replace("Input", "");
 
-    const updatedForm = formSuministroHogar.map(item => {
+    const updatedForm = formSuministroHogar.map((item) => {
       if (item.id === rangeId) {
         return { ...item, value: Number(value) };
       }
@@ -46,15 +48,18 @@ const SuministroHogar = ({ setSuministroHogarData }) => {
     setSuministroHogarData(updatedForm);
   };
 
-  const campos = useMemo(() => [
-    { id: "decoracionesInput", label: "Decoraciones" },
-    { id: "herramientasInput", label: "Herramientas" },
-    { id: "lavanderiaInput", label: "Lavandería" },
-    { id: "mascotasInput", label: "Mascotas" },
-    { id: "cuidadoPersonalInput", label: "Cuidado Personal" },
-    { id: "comisionesBancariasInput", label: "Comisiones Bancarias" },
-    { id: "otrosInput", label: "Otros" },
-  ], []);
+  const campos = useMemo(
+    () => [
+      { id: "decoracionesInput", label: "Decoraciones" },
+      { id: "herramientasInput", label: "Herramientas" },
+      { id: "lavanderiaInput", label: "Lavandería" },
+      { id: "mascotasInput", label: "Mascotas" },
+      { id: "cuidadoPersonalInput", label: "Cuidado Personal" },
+      { id: "comisionesBancariasInput", label: "Comisiones Bancarias" },
+      { id: "otrosInput", label: "Otros" },
+    ],
+    []
+  );
 
   return (
     <div>
@@ -69,18 +74,18 @@ const SuministroHogar = ({ setSuministroHogarData }) => {
                 className="form-control"
                 id={campo.id + "Input"}
                 name={campo.id + "Input"}
-                value={formData.find(item => item.id === campo.id).value || 0}
+                value={formData.find((item) => item.id === campo.id).value || 0}
                 onChange={handleInputChange}
               />
             </div>
-            <div className='mx-4'>
+            <div className="mx-4">
               <input
                 type="range"
                 className="form-range"
                 min="0"
                 max="100000"
                 id={campo.id}
-                value={formData.find(item => item.id === campo.id).value || 0}
+                value={formData.find((item) => item.id === campo.id).value || 0}
                 onChange={handleRangeChange}
               />
             </div>
