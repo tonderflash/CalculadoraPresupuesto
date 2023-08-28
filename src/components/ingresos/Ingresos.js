@@ -3,7 +3,7 @@ import FormIngresos from "./FormIngresos";
 
 const Ingresos = () => {
   return (
-    <div className="m-4">
+    <div>
       <FormIngresos />
     </div>
   );

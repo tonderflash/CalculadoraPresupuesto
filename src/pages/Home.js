@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <div>
       <div className="container">
-        <div className="p-2 m-2 mb-2 pb-1 text-white">
+        <div className="p-2 m-2 mb-2 pb-1 mt-4 text-white">
           <h3>Calculadora de Presupuesto</h3>
           <h4 style={{ fontWeight: 200 }} className="font-weight-200">
             Aprende a tomar Control de tus gastos
@@ -47,22 +47,27 @@ const Home = () => {
         </div>
         <div style={{ backgroundColor: "#ffffff", borderRadius: 12 }}>
           <div className="container d-flex flex-column">
-            <div className="box-style">
+            <div className="box-style" style={{ overflowX: "hidden" }}>
               <div className="m-3">
-                <p>
-                  Use this budget calculator to plan for your savings goals and
-                  manage your expenses. Fill out all fields that apply to you,
-                  and make adjustments to see how you could save more. In the
-                  income field, enter your take-home pay—the amount you have
-                  after withholding taxes, paying for benefits, or contributing
-                  to pre-tax retirement accounts.
+                <p style={{ fontWeight: 400, fontSize: "0.8em" }}>
+                  Utiliza esta calculadora de presupuesto para planificar tus
+                  objetivos de ahorro y gestionar tus gastos. Completa todos los
+                  campos que te apliquen y haz ajustes para ver cómo podrías
+                  ahorrar más. En el campo de ingresos, introduce tu salario
+                  neto, es decir, la cantidad que tienes después de deducir
+                  impuestos, pagar beneficios o contribuir a cuentas de
+                  jubilación antes de impuestos.
                 </p>
               </div>
-              <div className="row m-4">
+              <div className="row ml-0">
                 {/* Left Column */}
                 <div
                   className="col-md-6 mb-4"
-                  style={{ maxHeight: "100vh", overflowY: "auto" }}
+                  style={{
+                    maxHeight: "100vh",
+                    overflowY: "auto",
+                    overflowX: "hidden",
+                  }}
                 >
                   <div className="mt-2">
                     <Ingresos />
@@ -154,6 +159,11 @@ const Home = () => {
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="mt-3 mb-3 text-center">
+                    <button className="btn btn-success">
+                      Descargar Resumen
+                    </button>
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import FormGastos from "./FormGastos";
 
 const Gastos = () => {
   return (
-    <div className="m-4 mt-0">
+    <div className="mt-4">
       <FormGastos />
     </div>
   );
