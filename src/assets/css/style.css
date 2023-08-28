@@ -1,3 +1,16 @@
+.background-color {
+    background-color:#547725;
+    height: 100vh;
+    display: flex;
+}
+
+
+.box-style{
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
 .drop-size {
     width: 370px;
 }
@@ -9,6 +22,12 @@
 
 .menu-size {
     max-height: 500px;
+    overflow-y: auto;
+}
+
+.content-size {
+    width: 940px;
+    height: 850px;
     overflow-y: auto;
 }
 
@@ -45,23 +64,25 @@
 
 .button-style {
     border-radius: 0;
-    border: none;
     width: 370px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
 }
 
-.menu-size::-webkit-scrollbar {
+.content-size::-webkit-scrollbar {
     width: 10px;
 }
 
-.menu-size::-webkit-scrollbar-thumb {
-    background-color: #0059ff;
+.content-size::-webkit-scrollbar-thumb {
+    background-color: gray;
     border-radius: 5px;
 }
 
-.menu-size::-webkit-scrollbar-thumb:hover {
+.content-size::-webkit-scrollbar-thumb:hover {
     background-color: #555;
 }
 
-.menu-size::-webkit-scrollbar-track {
+.content-size::-webkit-scrollbar-track {
     background-color: #eee;
 }
