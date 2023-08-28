@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Home from "./pages/Home";
 import BudgetContext from "./components/gastos/GastosContext";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [budgetExpenses, setBudgetExpenses] = useState({
@@ -18,25 +19,25 @@ function App() {
         nombre: "Ingresos por inversiones",
         value: 0,
         subExpenses: [
-          { id: "AlquileresInput", value: 0 },
-          { id: "DividendosInput", value: 0 },
-          { id: "GananciasDeCapitalInput", value: 0 },
+          { id: "Alquileres", value: 0 },
+          { id: "Dividendos", value: 0 },
+          { id: "Ganancias De Capital", value: 0 },
         ],
       },
       {
         nombre: "Ingresos por Donaciones",
         value: 0,
         subExpenses: [
-          { id: "DonacionesInput", value: 0 },
-          { id: "SubsidiosInput", value: 0 },
+          { id: "Donaciones", value: 0 },
+          { id: "Subsidios", value: 0 },
         ],
       },
       {
         nombre: "Ingresos por Emprendimiento",
         value: 0,
         subExpenses: [
-          { id: "VentasBienesServiciosInput", value: 0 },
-          { id: "FreelanceInput", value: 0 },
+          { id: "Ventas Bienes Servicios", value: 0 },
+          { id: "Freelance", value: 0 },
         ],
       },
       {
@@ -51,12 +52,12 @@ function App() {
         nombre: "Ahorros",
         value: 0,
         subExpenses: [
-          { id: "FondoEmergenciaInput", value: 0 },
-          { id: "FondoVacacionesInput", value: 0 },
-          { id: "FondoJubilaciónInput", value: 0 },
-          { id: "FondoEducacionInput", value: 0 },
-          { id: "FondoReduccionDeudasInput", value: 0 },
-          { id: "FondoInversionInput", value: 0 },
+          { id: "Fondo Emergencia", value: 0 },
+          { id: "Fondo Vacaciones", value: 0 },
+          { id: "Fondo Jubilación", value: 0 },
+          { id: "Fondo Educacion", value: 0 },
+          { id: "Fondo ReduccionDeudas", value: 0 },
+          { id: "Fondo Inversion", value: 0 },
         ],
       },
     ],
@@ -66,18 +67,18 @@ function App() {
         nombre: "Vivienda y Servicios",
         value: 0,
         subExpenses: [
-          { id: "rentaInput", value: 0 },
-          { id: "prestamoHipotecarioInput", value: 0 },
-          { id: "impuestosPropiedadInput", value: 0 },
-          { id: "seguroInmbiliarioInput", value: 0 },
-          { id: "energíaElectricaInput", value: 0 },
-          { id: "celularInput", value: 0 },
-          { id: "cableInput", value: 0 },
-          { id: "internetInput", value: 0 },
-          { id: "gasInput", value: 0 },
-          { id: "matenimientoInput", value: 0 },
-          { id: "servivioDomesticoInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "renta", value: 0 },
+          { id: "prestamo Hipotecario", value: 0 },
+          { id: "impuestos Propiedad", value: 0 },
+          { id: "seguro Inmbiliario", value: 0 },
+          { id: "energía Electrica", value: 0 },
+          { id: "celular", value: 0 },
+          { id: "cable", value: 0 },
+          { id: "internet", value: 0 },
+          { id: "gas", value: 0 },
+          { id: "matenimiento", value: 0 },
+          { id: "servivio Domestico", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -85,15 +86,15 @@ function App() {
         nombre: "Entretenimiento",
         value: 0,
         subExpenses: [
-          { id: "restaurantesInput", value: 0 },
-          { id: "cafeInput", value: 0 },
-          { id: "deliverysInput", value: 0 },
-          { id: "cineInput", value: 0 },
-          { id: "hobbieInput", value: 0 },
-          { id: "loteriaInput", value: 0 },
-          { id: "memebresiaInput", value: 0 },
-          { id: "suscripcionesInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "restaurantes", value: 0 },
+          { id: "cafe", value: 0 },
+          { id: "deliverys", value: 0 },
+          { id: "cine", value: 0 },
+          { id: "hobbie", value: 0 },
+          { id: "loteria", value: 0 },
+          { id: "memebresia", value: 0 },
+          { id: "suscripciones", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -101,13 +102,13 @@ function App() {
         nombre: "Suministro del Hogar",
         value: 0,
         subExpenses: [
-          { id: "despensaInput", value: 0 },
-          { id: "herramientasInput", value: 0 },
-          { id: "lavanderiaInput", value: 0 },
-          { id: "mascotasInput", value: 0 },
-          { id: "cuidadoPersonalInput", value: 0 },
-          { id: "comidaMascotasInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "despensa", value: 0 },
+          { id: "herramientas", value: 0 },
+          { id: "lavanderia", value: 0 },
+          { id: "mascotas", value: 0 },
+          { id: "cuidado Personal", value: 0 },
+          { id: "comida MascotasInput", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -115,9 +116,9 @@ function App() {
         nombre: "Alimentos y Comestibles",
         value: 0,
         subExpenses: [
-          { id: "supermercadoInput", value: 0 },
-          { id: "necestidadesInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "supermercado", value: 0 },
+          { id: "necestidades", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -125,13 +126,13 @@ function App() {
         nombre: "Transporte",
         value: 0,
         subExpenses: [
-          { id: "gasolinaInput", value: 0 },
-          { id: "seguroVehiculoInput", value: 0 },
-          { id: "transporteInput", value: 0 },
-          { id: "parqueoInput", value: 0 },
-          { id: "presupuestoVehiculoInput", value: 0 },
-          { id: "mantenimientoVehiculoInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "gasolina", value: 0 },
+          { id: "seguro Vehiculo", value: 0 },
+          { id: "transporte", value: 0 },
+          { id: "parqueo", value: 0 },
+          { id: "presupuesto Vehiculo", value: 0 },
+          { id: "mantenimiento Vehiculo", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -139,10 +140,10 @@ function App() {
         nombre: "Salud",
         value: 0,
         subExpenses: [
-          { id: "seguroMedicoInput", value: 0 },
-          { id: "ConsultasMedicasInput", value: 0 },
-          { id: "farmaciaInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "seguro Medico", value: 0 },
+          { id: "Consultas Medicas", value: 0 },
+          { id: "farmacia", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -150,9 +151,9 @@ function App() {
         nombre: "Infantil",
         value: 0,
         subExpenses: [
-          { id: "CuidoInput", value: 0 },
-          { id: "ActividadesSocialesInput", value: 0 },
-          { id: "otrosInput", value: 0 },
+          { id: "Cuido", value: 0 },
+          { id: "Actividades Sociales", value: 0 },
+          { id: "otros", value: 0 },
         ],
       },
       {
@@ -160,11 +161,11 @@ function App() {
         nombre: "Deudas",
         value: 0,
         subExpenses: [
-          { id: "PrestamoConsumoInput", value: 0 },
-          { id: "TarjetaCreditoInput", value: 0 },
-          { id: "MantenimientoInfantilInput", value: 0 },
-          { id: "ImpuestosGubernamentalesInput", value: 0 },
-          { id: "OtrosInput", value: 0 },
+          { id: "Prestamo Consumo", value: 0 },
+          { id: "Tarjeta Credito", value: 0 },
+          { id: "Mantenimiento Infantil", value: 0 },
+          { id: "Impuestos Gubernamentales", value: 0 },
+          { id: "Otros", value: 0 },
         ],
       },
     ],
@@ -181,8 +182,14 @@ function App() {
 
   return (
     <BudgetContext.Provider value={{ budgetExpenses, setExpense }}>
-      <div>
-        <Home />
+      <div className='background-color'>
+        <div className="fixed-top"> {/* This will keep the Navbar at the top */}
+          <Navbar />
+        </div>
+        <div className="mt-5">
+          <Home />
+        </div>
+
       </div>
     </BudgetContext.Provider>
   );

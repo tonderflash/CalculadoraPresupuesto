@@ -17,8 +17,10 @@ const FormGastos = () => {
               <button
                 className="btn btn-secondary dropdown-toggle button-style text-start"
                 type="button"
-                data-bs-toggle="dropdown"
+                data-bs-toggle="collapse"
+                data-bs-target={`#collapseGastos${index}`}
                 aria-expanded="false"
+                aria-controls={`collapseGastos${index}`}
               >
                 <span
                   style={{
@@ -32,7 +34,7 @@ const FormGastos = () => {
                 ></span>
                 {expense.nombre}
               </button>
-              <ul className="dropdown-menu col-12 menu-size">
+              <ul className="collapse container" id={`collapseGastos${index}`} style={{ backgroundColor: "#f5f5f6" }}>
                 <ViviendaServicios
                   expense={expense}
                   expenseIndex={index}
