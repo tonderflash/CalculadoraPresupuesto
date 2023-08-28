@@ -1,21 +1,15 @@
 import React from "react";
+
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
 import Ahorros from "../components/ahorros/Ahorros";
 import PieChart from "../components/PieChart";
+import { useContext } from "react";
+import BudgetContext from "../components/gastos/GastosContext";
 
 const Home = () => {
-  const elementos = [
-    { color: "blue", nombre: "Vivienda y Servicios", value: 0 },
-    { color: "green", nombre: "Entretenimiento", value: 0 },
-    { color: "orange", nombre: "Suministro del Hogar", value: 0 },
-    { color: "red", nombre: "Alimentos y Comestibles", value: 0 },
-    { color: "purple", nombre: "Transporte", value: 0 },
-    { color: "yellow", nombre: "Salud", value: 0 },
-    { color: "pink", nombre: "Infantil", value: 0 },
-    { color: "gray", nombre: "Deudas", value: 0 },
-    { color: "teal", nombre: "Ahorros", value: 0 }
-  ];
+  const { budgetExpenses } = useContext(BudgetContext);
+
   return (
     <div
       className="container-md w-100 mt-5"
@@ -58,17 +52,25 @@ const Home = () => {
             <PieChart />
           </div>
           <div>
-            {elementos.map((elemento, index) => (
+            {budgetExpenses.consolidatedDataGastos.map((elemento, index) => (
               <div className="flex-container" key={index}>
-                <span style={{ backgroundColor: elemento.color }} className="color-circle"></span>
-                <p className="p-16" style={{ flex: 1 }}>{elemento.nombre}</p>
+                <span
+                  style={{ backgroundColor: elemento.color }}
+                  className="color-circle"
+                ></span>
+                <p className="p-16" style={{ flex: 1 }}>
+                  {elemento.nombre}
+                </p>
                 <p className="p-17">{elemento.value} RD$</p>
               </div>
             ))}
           </div>
           <div>
             <div>
-              <div className="card result-size mt-4" style={{ backgroundColor: "#d3d3d3", borderRadius: 0 }}>
+              <div
+                className="card result-size mt-4"
+                style={{ backgroundColor: "#d3d3d3", borderRadius: 0 }}
+              >
                 <div className="card-body">
                   <p className="card-text custom-text">
                     <div className="d-flex justify-content-between">
