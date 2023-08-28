@@ -21,8 +21,10 @@ const FormAhorros = () => {
                         <button
                             className="btn btn-secondary dropdown-toggle button-style text-start"
                             type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapseAhorro" 
+                            aria-expanded="false" 
+                            aria-controls="collapseAhorro"
                         >
                             <span
                                 style={{
@@ -34,9 +36,9 @@ const FormAhorros = () => {
                                     marginRight: "10px",
                                 }}
                             ></span>
-                            Vivienda y Servicios
+                            Ahorros
                         </button>
-                        <ul className="dropdown-menu col-12 menu-size">
+                        <ul className="collapse container" id="collapseAhorro" style={{ backgroundColor: "#d3d3d3" }}>
                             <IngresoAhorros setFormAhorros={setFormAhorros} />
                         </ul>
                     </div>

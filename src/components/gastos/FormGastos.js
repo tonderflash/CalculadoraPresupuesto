@@ -41,7 +41,7 @@ const FormGastos = () => {
     DeudasData,
     EntretenimientoData,
   ]);
-  
+
   console.log(consolidatedDataGastos);
 
   return (
@@ -53,8 +53,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseViviendaServicios"
               aria-expanded="false"
+              aria-controls="collapseViviendaServicios"
             >
               <span
                 style={{
@@ -68,7 +70,7 @@ const FormGastos = () => {
               ></span>
               Vivienda y Servicios
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseViviendaServicios" style={{ backgroundColor: "#d3d3d3" }}>
               <ViviendaServicios
                 setViviendaServiciosData={setViviendaServiciosData}
               />
@@ -80,8 +82,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseEntretenimiento"
               aria-expanded="false"
+              aria-controls="collapseEntretenimiento"
             >
               <span
                 style={{
@@ -95,7 +99,7 @@ const FormGastos = () => {
               ></span>
               Entretenimiento
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseEntretenimiento" style={{ backgroundColor: "#d3d3d3" }}>
               <Entretenimiento
                 setEntreteniminetoData={setEntreteniminetoData}
               />
@@ -107,8 +111,12 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseSuministros"
               aria-expanded="false"
+              aria-controls="collapseSuministros"
+              
+              
             >
               <span
                 style={{
@@ -122,7 +130,7 @@ const FormGastos = () => {
               ></span>
               Suministro del Hogar
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseSuministros" style={{ backgroundColor: "#d3d3d3" }}>
               <SuministroHogar
                 setSuministroHogarData={setSuministroHogarData}
               />
@@ -134,8 +142,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseAlimentosComestibles"
               aria-expanded="false"
+              aria-controls="collapseAlimentosComestibles"
             >
               <span
                 style={{
@@ -149,7 +159,7 @@ const FormGastos = () => {
               ></span>
               Alimentos y Comestibles
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseAlimentosComestibles" style={{ backgroundColor: "#d3d3d3" }}>
               <AlimentosComestibles
                 setAlimentosComestiblesData={setAlimentosComestiblesData}
               />
@@ -161,8 +171,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTransporte"
               aria-expanded="false"
+              aria-controls="collapseTransporte"
             >
               <span
                 style={{
@@ -176,7 +188,7 @@ const FormGastos = () => {
               ></span>
               Transporte
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseTransporte" style={{ backgroundColor: "#d3d3d3" }}>
               <Transporte setTransporteData={setTransporteData} />
             </ul>
           </div>
@@ -186,8 +198,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseSalud"
               aria-expanded="false"
+              aria-controls="collapseSalud"
             >
               <span
                 style={{
@@ -201,7 +215,7 @@ const FormGastos = () => {
               ></span>
               Salud
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseSalud" style={{ backgroundColor: "#d3d3d3" }}>
               <Salud setSaludData={setSaludData} />
             </ul>
           </div>
@@ -211,8 +225,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseInfantil"
               aria-expanded="false"
+              aria-controls="collapseInfantil"
             >
               <span
                 style={{
@@ -226,7 +242,7 @@ const FormGastos = () => {
               ></span>
               Infantil
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseInfantil" style={{ backgroundColor: "#d3d3d3" }}>
               <Infantil setInfantilData={setInfantilData} />
             </ul>
           </div>
@@ -236,8 +252,10 @@ const FormGastos = () => {
             <button
               className="btn btn-secondary dropdown-toggle button-style text-start"
               type="button"
-              data-bs-toggle="dropdown"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseDeudas"
               aria-expanded="false"
+              aria-controls="collapseDeudas"
             >
               <span
                 style={{
@@ -251,7 +269,7 @@ const FormGastos = () => {
               ></span>
               Deudas
             </button>
-            <ul className="dropdown-menu col-12 menu-size">
+            <ul className="collapse container" id="collapseDeudas" style={{ backgroundColor: "#d3d3d3" }}>
               <Deudas setDeudasData={setDeudasData} />
             </ul>
           </div>

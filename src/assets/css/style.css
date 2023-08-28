@@ -1,3 +1,15 @@
+.background-color {
+    background-color:#547725;
+    height: 100vh;
+    display: flex;
+}
+
+.box-style{
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+}
+
 .drop-size {
     width: 370px;
 }
@@ -45,8 +57,10 @@
 
 .button-style {
     border-radius: 0;
-    border: none;
     width: 370px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
 }
 
 .menu-size::-webkit-scrollbar {
