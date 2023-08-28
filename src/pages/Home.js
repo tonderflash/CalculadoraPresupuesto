@@ -19,9 +19,6 @@ const Home = () => {
   ];
   return (
     <>
-      <header>
-        <img src="your-image-url.jpg" alt="Header Image" />
-      </header>
       <div className="container box-style content-size" style={{ backgroundColor: "#ffffff" }}>
         <div className="p-2 m-2">
           <h3>Budgeting Calculator</h3>
