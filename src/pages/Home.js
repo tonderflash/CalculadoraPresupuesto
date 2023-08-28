@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
@@ -18,20 +19,20 @@ const Home = () => {
   ];
   return (
     <>
-      <div>
-        <h2>Budgeting Calculator</h2>
-        <h3>Learn how to gain control of your saving and spending</h3>
-      </div>
-      
-      <div className="container mt-5 box-style" style={{ backgroundColor: "#ffffff" }}>
-        <div className="p-3 m-3">
-          <p><b>Use this budget calculator to plan for your savings goals and manage your expenses.
+      <header>
+        <img src="your-image-url.jpg" alt="Header Image" />
+      </header>
+      <div className="container box-style content-size" style={{ backgroundColor: "#ffffff" }}>
+        <div className="p-2 m-2">
+          <h3>Budgeting Calculator</h3>
+          <h4>Learn how to gain control of your saving and spending</h4>
+          <p>Use this budget calculator to plan for your savings goals and manage your expenses.
             Fill out all fields that apply to you, and make adjustments to see how you could save more.
             In the income field, enter your take-home pay—the amount you have after withholding taxes, paying for benefits,
             or contributing to pre-tax retirement accounts.
-          </b></p>
+          </p>
         </div>
-        <div className="row">
+        <div className="row m-1 mb-3">
           {/* Columna de la izquierda */}
           <div className="col-md-6">
             <div className="mb-4">
