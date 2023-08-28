@@ -5,6 +5,8 @@ import BudgetContext from "./GastosContext";
 const FormGastos = () => {
   const { budgetExpenses: expenses } = useContext(BudgetContext);
 
+  console.log("expenses", expenses.consolidatedDataGastos);
+
   return (
     <div className="container">
       <div className="row">
@@ -31,7 +33,11 @@ const FormGastos = () => {
                 {expense.nombre}
               </button>
               <ul className="dropdown-menu col-12 menu-size">
-                <ViviendaServicios expense={expense} expenseIndex={index} />
+                <ViviendaServicios
+                  expense={expense}
+                  expenseIndex={index}
+                  budgetGroup={"consolidatedDataGastos"}
+                />
               </ul>
             </div>
           ))}

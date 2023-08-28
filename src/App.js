@@ -170,6 +170,8 @@ function App() {
     ],
   });
 
+  console.log(budgetExpenses);
+
   const setExpense = (expense, value) => {
     setBudgetExpenses((prev) => ({
       ...prev,

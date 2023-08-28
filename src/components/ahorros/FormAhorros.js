@@ -31,7 +31,11 @@ const FormAhorros = () => {
                 {expense.nombre}
               </button>
               <ul className="dropdown-menu col-12 menu-size">
-                <ViviendaServicios expense={expense} expenseIndex={index} />
+                <ViviendaServicios
+                  expense={expense}
+                  expenseIndex={index}
+                  budgetGroup={"consolidatedDataAhorros"}
+                />
               </ul>
             </div>
           ))}
