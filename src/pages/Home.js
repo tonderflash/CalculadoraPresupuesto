@@ -72,25 +72,25 @@ const Home = () => {
                 style={{ backgroundColor: "#d3d3d3", borderRadius: 0 }}
               >
                 <div className="card-body">
-                  <p className="card-text custom-text">
+                  <div className="card-text custom-text">
                     <div className="d-flex justify-content-between">
                       Ingreso mensual total
                       <span>RD$ 0</span>
                     </div>
-                  </p>
-                  <p className="card-text custom-text">
+                  </div>
+                  <div className="card-text custom-text">
                     <div className="d-flex justify-content-between">
                       Gastos mensuales totales
                       <span>RD$ 0</span>
                     </div>
-                  </p>
+                  </div>
                   <hr />
-                  <p className="card-text custom-text">
+                  <div className="card-text custom-text">
                     <div className="d-flex justify-content-between">
                       Fondos mensuales restantes
                       <span>RD$ 0</span>
                     </div>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>

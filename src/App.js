@@ -19,7 +19,6 @@ function App() {
         value: 0,
         subExpenses: [
           { id: "AlquileresInput", value: 0 },
-          { id: "AlquileresInput", value: 0 },
           { id: "DividendosInput", value: 0 },
           { id: "GananciasDeCapitalInput", value: 0 },
         ],
