@@ -1,0 +1,67 @@
+.btn-ia {
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content;
+  border: none !important;
+  color: white !important;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  position: relative;
+  background: linear-gradient(to right, #9023bd, #7122c5);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-ia:hover {
+  color: white !important; /* Asegura que el color del texto es blanco en hover */
+}
+
+.btn-ia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #e96f5e, #ce2784);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.btn-ia:hover::before {
+  opacity: 1;
+}
+
+.svg-logo {
+  fill: #ffffff;
+  height: 20px;
+  width: auto;
+  margin-right: 5px;
+}
+
+.description {
+  font-size: 16px; /* Ajusta según tus preferencias */
+  color: #555; /* Color de texto elegante */
+  max-width: 300px; /* Ajusta según tus preferencias */
+  text-align: left;
+}
+
+.btn-success.w-100 {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .description {
+    max-width: 200px;
+  }
+
+  .btn-ia {
+    padding: 5px 10px !important; /* Reduce el padding para dispositivos móviles */
+    height: 53px;
+  }
+
+  .svg-logo {
+    height: 15px; /* Reduce el tamaño del logo para dispositivos móviles */
+  }
+}
