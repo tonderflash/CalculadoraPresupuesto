@@ -171,8 +171,6 @@ function App() {
     ],
   });
 
-  console.log(budgetExpenses);
-
   const setExpense = (expense, value) => {
     setBudgetExpenses((prev) => ({
       ...prev,
@@ -182,14 +180,15 @@ function App() {
 
   return (
     <BudgetContext.Provider value={{ budgetExpenses, setExpense }}>
-      <div className='background-color'>
-        <div className="fixed-top"> {/* This will keep the Navbar at the top */}
+      <div className="background-color">
+        <div className="fixed-top">
+          {" "}
+          {/* This will keep the Navbar at the top */}
           <Navbar />
         </div>
         <div className="mt-5">
           <Home />
         </div>
-
       </div>
     </BudgetContext.Provider>
   );

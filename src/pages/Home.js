@@ -7,6 +7,9 @@ import PieChart from "../components/PieChart";
 import { useContext } from "react";
 import BudgetContext from "../components/gastos/GastosContext";
 import { NumericFormat } from "react-number-format";
+import { ReactComponent as PromptLogo } from "../assets/img/prompt.svg";
+
+import "./style.css";
 
 const Home = () => {
   const { budgetExpenses } = useContext(BudgetContext);
@@ -14,6 +17,15 @@ const Home = () => {
   const graphLegend = budgetExpenses.consolidatedDataGastos.concat(
     budgetExpenses.consolidatedDataAhorros
   );
+
+  const filteredGraphLegend = graphLegend
+    .map((item) => {
+      return {
+        ...item,
+        subExpenses: item.subExpenses.filter((subItem) => subItem.value !== 0),
+      };
+    })
+    .filter((item) => item.value !== 0 || item.subExpenses.length > 0);
 
   const calculateTotal = useCallback(
     (budgetGroup) => {
@@ -23,6 +35,11 @@ const Home = () => {
     },
     [budgetExpenses]
   );
+
+  const incomes = budgetExpenses.consolidatedDataIngresos;
+
+  console.log("gastos", JSON.stringify(filteredGraphLegend));
+  console.log("incomes", JSON.stringify(incomes));
 
   const summary = useMemo(() => {
     const totalIncome = calculateTotal("consolidatedDataIngresos");
@@ -100,7 +117,7 @@ const Home = () => {
                         <p className="p-16" style={{ flex: 1 }}>
                           {elemento.nombre}
                         </p>
-                        <p className="p-17">
+                        <p style={{ fontWeight: 300 }} className="p-17">
                           <NumericFormat
                             value={elemento.value}
                             displayType={"text"}
@@ -160,8 +177,26 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 mb-3 text-center">
-                    <button className="btn btn-success">
+                  <div className="mt-3 mb-3 text-center d-flex flex-column align-items-center ">
+                    <div
+                      style={{
+                        borderRadius: "10px",
+                        backgroundColor: "#f5eef6",
+                        padding: "9px",
+                        alignItems: "center",
+                      }}
+                      className="d-flex mb-3 w-100 justify-content-between"
+                    >
+                      <button className="btn btn-ia mr-3 mb-0">
+                        <PromptLogo className="svg-logo mr-2" />
+                        Generar
+                      </button>
+                      <div className="description">
+                        Genera tu asesoramiento financiero con inteligencia
+                        artificial
+                      </div>
+                    </div>
+                    <button className="btn btn-success w-100">
                       Descargar Resumen
                     </button>
                   </div>

@@ -5,8 +5,6 @@ import BudgetContext from "./GastosContext";
 const FormGastos = () => {
   const { budgetExpenses: expenses } = useContext(BudgetContext);
 
-  console.log("expenses", expenses.consolidatedDataGastos);
-
   return (
     <div className="container">
       <div className="row">
