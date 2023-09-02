@@ -7,6 +7,15 @@
   /* padding: 20px; */
 }
 
+.response-style {
+  background-color: #555;
+  font-family: "Roboto";
+  border-radius: 5px;
+  font-size: 8px;
+  color: white;
+  margin: 10px;
+}
+
 .box-style {
   border-radius: 10px;
   width: 100%;

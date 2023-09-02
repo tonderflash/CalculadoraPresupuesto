@@ -1,5 +1,6 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
+import { TypeAnimation } from "react-type-animation";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
 import Ahorros from "../components/ahorros/Ahorros";
@@ -13,6 +14,7 @@ import "./style.css";
 
 const Home = () => {
   const { budgetExpenses } = useContext(BudgetContext);
+  // const [counter, setCounter] = useState(0);
 
   const graphLegend = budgetExpenses.consolidatedDataGastos.concat(
     budgetExpenses.consolidatedDataAhorros
@@ -195,6 +197,24 @@ const Home = () => {
                         Genera tu asesoramiento financiero con inteligencia
                         artificial
                       </div>
+                    </div>
+                    <div className="response-style w-100">
+                      <TypeAnimation
+                        sequence={[
+                          "One", // Types 'One'
+                          1000, // Waits 1s
+                          "Two", // Deletes 'One' and types 'Two'
+                          2000, // Waits 2s
+                          "Two Three", // Types 'Three' without deleting 'Two'
+                          () => {
+                            console.log("Sequence completed");
+                          },
+                        ]}
+                        wrapper="span"
+                        cursor={true}
+                        repeat={Infinity}
+                        style={{ fontSize: "2em", display: "inline-block" }}
+                      />
                     </div>
                     <button className="btn btn-success w-100">
                       Descargar Resumen
