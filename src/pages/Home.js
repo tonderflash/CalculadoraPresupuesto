@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-
-import { TypeAnimation } from "react-type-animation";
+import TextGenerated from "../components/TextGenerated";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
 import Ahorros from "../components/ahorros/Ahorros";
@@ -9,13 +8,13 @@ import { useContext } from "react";
 import BudgetContext from "../components/gastos/GastosContext";
 import { NumericFormat } from "react-number-format";
 import { ReactComponent as PromptLogo } from "../assets/img/prompt.svg";
-
 import "./style.css";
+import ExportFiles from "../components/ExportFiles";
+
+
 
 const Home = () => {
   const { budgetExpenses } = useContext(BudgetContext);
-  // const [counter, setCounter] = useState(0);
-
   const graphLegend = budgetExpenses.consolidatedDataGastos.concat(
     budgetExpenses.consolidatedDataAhorros
   );
@@ -39,10 +38,6 @@ const Home = () => {
   );
 
   const incomes = budgetExpenses.consolidatedDataIngresos;
-
-  console.log("gastos", JSON.stringify(filteredGraphLegend));
-  console.log("incomes", JSON.stringify(incomes));
-
   const summary = useMemo(() => {
     const totalIncome = calculateTotal("consolidatedDataIngresos");
     const totalExpenses = calculateTotal("consolidatedDataGastos");
@@ -189,36 +184,13 @@ const Home = () => {
                       }}
                       className="d-flex mb-3 w-100 justify-content-between"
                     >
-                      <button className="btn btn-ia mr-3 mb-0">
-                        <PromptLogo className="svg-logo mr-2" />
-                        Generar
-                      </button>
-                      <div className="description">
-                        Genera tu asesoramiento financiero con inteligencia
-                        artificial
+                      <TextGenerated />
+                    </div>
+                    <div>
+                      <div className="m-1 w-100"> {/* Utilizamos col-md-6 para dividir el ancho en dos */}
+                        <ExportFiles filteredGraphLegend={filteredGraphLegend} excelData={incomes} fileName="Resumen" />
                       </div>
                     </div>
-                    <div className="response-style w-100">
-                      <TypeAnimation
-                        sequence={[
-                          "One", // Types 'One'
-                          1000, // Waits 1s
-                          "Two", // Deletes 'One' and types 'Two'
-                          2000, // Waits 2s
-                          "Two Three", // Types 'Three' without deleting 'Two'
-                          () => {
-                            console.log("Sequence completed");
-                          },
-                        ]}
-                        wrapper="span"
-                        cursor={true}
-                        repeat={Infinity}
-                        style={{ fontSize: "2em", display: "inline-block" }}
-                      />
-                    </div>
-                    <button className="btn btn-success w-100">
-                      Descargar Resumen
-                    </button>
                   </div>
                 </div>
               </div>
