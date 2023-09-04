@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from "react";
-import TextGenerated from "../components/TextGenerated";
+// import TextGenerated from "../components/TextGenerated";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
 import Ahorros from "../components/ahorros/Ahorros";
@@ -9,6 +9,7 @@ import BudgetContext from "../components/gastos/GastosContext";
 import { NumericFormat } from "react-number-format";
 import "./style.css";
 import ExportFiles from "../components/ExportFiles";
+import ResponseGenerated from "../components/ResponseGenerated";
 
 const Home = () => {
   const { budgetExpenses } = useContext(BudgetContext);
@@ -181,7 +182,7 @@ const Home = () => {
                       }}
                       className="d-flex mb-3 w-100 justify-content-between"
                     >
-                      <TextGenerated />
+                      <ResponseGenerated />
                     </div>
                     <div>
                       <div className="m-1 w-100"> {/* Utilizamos col-md-6 para dividir el ancho en dos */}
