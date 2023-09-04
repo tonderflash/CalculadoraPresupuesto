@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo } from "react";
 import TextGenerated from "../components/TextGenerated";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
@@ -7,11 +7,8 @@ import PieChart from "../components/PieChart";
 import { useContext } from "react";
 import BudgetContext from "../components/gastos/GastosContext";
 import { NumericFormat } from "react-number-format";
-import { ReactComponent as PromptLogo } from "../assets/img/prompt.svg";
 import "./style.css";
 import ExportFiles from "../components/ExportFiles";
-
-
 
 const Home = () => {
   const { budgetExpenses } = useContext(BudgetContext);
