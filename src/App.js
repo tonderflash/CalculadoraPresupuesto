@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Home from "./pages/Home";
 import BudgetContext from "./components/gastos/GastosContext";
-import Navbar from "./components/Navbar";
 
 function App() {
   const [budgetExpenses, setBudgetExpenses] = useState({
@@ -48,7 +47,7 @@ function App() {
     ],
     consolidatedDataAhorros: [
       {
-        color: "teal",
+        color: "#ADD8E6", // Azul pastel
         nombre: "Ahorros",
         value: 0,
         subExpenses: [
@@ -63,7 +62,7 @@ function App() {
     ],
     consolidatedDataGastos: [
       {
-        color: "blue",
+        color: "#98FB98", // Verde pastel
         nombre: "Vivienda y Servicios",
         value: 0,
         subExpenses: [
@@ -82,7 +81,7 @@ function App() {
         ],
       },
       {
-        color: "green",
+        color: "#FFFF99", // Amarillo pastel
         nombre: "Entretenimiento",
         value: 0,
         subExpenses: [
@@ -98,7 +97,7 @@ function App() {
         ],
       },
       {
-        color: "orange",
+        color: "#FFB6C1", // Rosa pastel
         nombre: "Suministro del Hogar",
         value: 0,
         subExpenses: [
@@ -112,7 +111,7 @@ function App() {
         ],
       },
       {
-        color: "red",
+        color: "#FFA07A", // Salmón pastel
         nombre: "Alimentos y Comestibles",
         value: 0,
         subExpenses: [
@@ -122,7 +121,7 @@ function App() {
         ],
       },
       {
-        color: "purple",
+        color: "#FF6B6B", // Rojo pastel
         nombre: "Transporte",
         value: 0,
         subExpenses: [
@@ -136,7 +135,7 @@ function App() {
         ],
       },
       {
-        color: "yellow",
+        color: "#FFD700", // Naranja pastel
         nombre: "Salud",
         value: 0,
         subExpenses: [
@@ -147,7 +146,7 @@ function App() {
         ],
       },
       {
-        color: "pink",
+        color: "#DA70D6", // Morado pastel
         nombre: "Infantil",
         value: 0,
         subExpenses: [
@@ -157,7 +156,7 @@ function App() {
         ],
       },
       {
-        color: "gray",
+        color: "#D3D3D3", // Gris claro pastel
         nombre: "Deudas",
         value: 0,
         subExpenses: [
@@ -184,7 +183,7 @@ function App() {
         <div className="fixed-top">
           {" "}
           {/* This will keep the Navbar at the top */}
-          <Navbar />
+          {/* navbar aqui */}
         </div>
         <div className="mt-5">
           <Home />

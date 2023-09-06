@@ -62,13 +62,7 @@ const Home = () => {
             <div className="box-style" style={{ overflowX: "hidden" }}>
               <div className="m-3">
                 <p style={{ fontWeight: 400, fontSize: "0.8em" }}>
-                  Utiliza esta calculadora de presupuesto para planificar tus
-                  objetivos de ahorro y gestionar tus gastos. Completa todos los
-                  campos que te apliquen y haz ajustes para ver cómo podrías
-                  ahorrar más. En el campo de ingresos, introduce tu salario
-                  neto, es decir, la cantidad que tienes después de deducir
-                  impuestos, pagar beneficios o contribuir a cuentas de
-                  jubilación antes de impuestos.
+                  {/* descripcion aqui */}
                 </p>
               </div>
               <div className="row ml-0">
