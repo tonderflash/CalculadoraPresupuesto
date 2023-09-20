@@ -48,6 +48,8 @@ const Home = () => {
     };
   }, [budgetExpenses]);
 
+  console.log("summary", summary);
+  
   return (
     <div>
       <div className="container">
@@ -176,7 +178,7 @@ const Home = () => {
                       }}
                       className="d-flex mb-3 w-100 justify-content-between"
                     >
-                      <ResponseGenerated />
+                      <ResponseGenerated budgetData={budgetExpenses}/>
                     </div>
                     <div>
                       <div className="m-1 w-100"> {/* Utilizamos col-md-6 para dividir el ancho en dos */}
