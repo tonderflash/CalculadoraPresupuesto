@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo } from "react";
-// import TextGenerated from "../components/TextGenerated";
 import Gastos from "../components/gastos/Gastos";
 import Ingresos from "../components/ingresos/Ingresos";
 import Ahorros from "../components/ahorros/Ahorros";
@@ -50,7 +49,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="">
         <div className="p-2 m-2 mb-2 pb-1 mt-4 text-white">
           <h3>Calculadora de Presupuesto</h3>
           <h4 style={{ fontWeight: 200 }} className="font-weight-200">
@@ -58,7 +57,7 @@ const Home = () => {
           </h4>
         </div>
         <div style={{ backgroundColor: "#ffffff", borderRadius: 12 }}>
-          <div className="container d-flex flex-column">
+          <div className=" d-flex flex-column">
             <div className="box-style" style={{ overflowX: "hidden" }}>
               <div className="m-3">
                 <p style={{ fontWeight: 400, fontSize: "0.8em" }}>
@@ -87,8 +86,8 @@ const Home = () => {
                 </div>
                 {/* Right Column with Gray Background */}
                 <div
-                  className="col-md-6"
-                  style={{ backgroundColor: "#f5f5f6", borderRadius: 12 }}
+                  style={{backgroundColor: "#f5f5f6", borderRadius: 12 }}
+                  className="col-md-6 p-4"
                 >
                   <h5 className="text-center mt-1">
                     DESGLOSE DEL PRESUPUESTO MENSUAL
@@ -117,7 +116,7 @@ const Home = () => {
                       </div>
                     ))}
                   </div>
-                  <div>
+                  <div> 
                     <div
                       className="card mt-2 mb-2"
                       style={{ backgroundColor: "#f5f5f6", borderRadius: 0 }}
@@ -166,15 +165,15 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 mb-3 text-center d-flex flex-column align-items-center ">
+                  <div className="mt-3 mb-3 text-center">
                     <div
                       style={{
                         borderRadius: "10px",
                         backgroundColor: "#f5eef6",
-                        padding: "9px",
+                        padding: "5px",
                         alignItems: "center",
                       }}
-                      className="d-flex mb-3 w-100 justify-content-between"
+                      className="d-flex mb-3 w-100"
                     >
                       <ResponseGenerated />
                     </div>
