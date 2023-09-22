@@ -37,7 +37,6 @@
   fill: #ffffff;
   height: 20px;
   width: 75px;
-  margin-right: 5px;
 }
 
 .description {
@@ -50,6 +49,17 @@
 .btn-success.w-100 {
   width: 100%;
 }
+
+/* iphone*/
+@media (max-width: 767px) { 
+  .btn-ia {
+      height: 54px!important;
+  }
+  .description {
+      text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .description {
     /* max-width: 200px; */
@@ -60,8 +70,8 @@
     height: 53px;
   }
 
-  .svg-logo {
-    height: 15px; /* Reduce el tamaño del logo para dispositivos móviles */
+  /* .svg-logo {
 
-  }
+
+  } */
 }

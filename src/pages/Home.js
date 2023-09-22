@@ -172,6 +172,8 @@ const Home = () => {
                       style={{
                         borderRadius: "10px",
                         backgroundColor: "#f5eef6",
+                        justifyContent: "center",
+                        width: "100%",
                         padding: "5px",
                         alignItems: "center",
                       }}

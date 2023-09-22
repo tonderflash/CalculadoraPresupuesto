@@ -8,9 +8,10 @@
 }
 
 .response-style {
-  background-color: #555;
+  background-color: #919191;
   font-family: "Roboto";
   border-radius: 5px;
+  padding: 6px;
   font-size: 8px;
   color: white;
   margin: 1px;
