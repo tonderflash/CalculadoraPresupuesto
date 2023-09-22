@@ -175,7 +175,7 @@ const Home = () => {
                         padding: "5px",
                         alignItems: "center",
                       }}
-                      className="d-flex mb-3 w-100"
+                      className="d-flex mb-3"
                     >
                       <ResponseGenerated budgetData={budgetExpenses}/>
                     </div>

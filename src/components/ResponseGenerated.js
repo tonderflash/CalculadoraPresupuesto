@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { ReactComponent as PromptLogo } from "../assets/img/prompt.svg";
-import axios from "axios"; 
+import axios from "axios";
 
 const ResponseGenerated = (props) => {
   const [mostrarTextGenerated, setMostrarTextGenerated] = useState(false);
@@ -66,15 +66,17 @@ const ResponseGenerated = (props) => {
     <div>
       <div>
         <div className="d-flex align-items-center">
-          <button onClick={handleResponseFromAI} className="btn btn-ia mr-3 mb-0 m-1">
-            <PromptLogo className="svg-logo mr-2" />
-            Generar
+          <button onClick={handleResponseFromAI} className="btn btn-ia mr-3 mb-0 m-2">
+            <div className="d-flex align-items-center">
+              <PromptLogo className="svg-logo" />
+              <span>Generar</span>
+            </div>
           </button>
-          <div className="description m-1">
+          <div className="description">
             Genera tu asesoramiento financiero con inteligencia artificial
           </div>
         </div>
-        <div className="response-style w-100">
+        <div className="response-style mt-3">
           {mostrarTextGenerated &&
             <div>
               <TypeAnimation

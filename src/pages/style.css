@@ -36,7 +36,7 @@
 .svg-logo {
   fill: #ffffff;
   height: 20px;
-  width: auto;
+  width: 75px;
   margin-right: 5px;
 }
 
@@ -52,7 +52,7 @@
 }
 @media (max-width: 768px) {
   .description {
-    max-width: 200px;
+    /* max-width: 200px; */
   }
 
   .btn-ia {
@@ -62,5 +62,6 @@
 
   .svg-logo {
     height: 15px; /* Reduce el tamaño del logo para dispositivos móviles */
+
   }
 }
