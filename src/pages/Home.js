@@ -48,7 +48,7 @@ const Home = () => {
   }, [budgetExpenses]);
 
   console.log("summary", summary);
-  
+
   return (
     <div>
       <div className="">
@@ -88,7 +88,7 @@ const Home = () => {
                 </div>
                 {/* Right Column with Gray Background */}
                 <div
-                  style={{backgroundColor: "#f5f5f6", borderRadius: 12 }}
+                  style={{ backgroundColor: "#f5f5f6", borderRadius: 12 }}
                   className="col-md-6 p-4"
                 >
                   <h5 className="text-center mt-1">
@@ -118,7 +118,7 @@ const Home = () => {
                       </div>
                     ))}
                   </div>
-                  <div> 
+                  <div>
                     <div
                       className="card mt-2 mb-2"
                       style={{ backgroundColor: "#f5f5f6", borderRadius: 0 }}
@@ -179,13 +179,9 @@ const Home = () => {
                       }}
                       className="d-flex mb-3"
                     >
-                      <ResponseGenerated budgetData={budgetExpenses}/>
+                      <ResponseGenerated budgetData={budgetExpenses} />
                     </div>
-                    <div>
-                      <div className="m-1 w-100"> {/* Utilizamos col-md-6 para dividir el ancho en dos */}
-                        <ExportFiles filteredGraphLegend={filteredGraphLegend} excelData={incomes} fileName="Resumen" />
-                      </div>
-                    </div>
+                    <div></div>
                   </div>
                 </div>
               </div>

@@ -6,11 +6,24 @@ import axios from "axios";
 const ResponseGenerated = (props) => {
   const [textGenerated, setTextGenerated] = useState("");
   const [keyCounter, setKeyCounter] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
 
-  const YOUR_OPENAI_API_KEY =
-    "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";
-  const CONTEXT =
-    "Eres un asesor financiero y das consejos a tus clientes sobre cómo manejar su dinero, da una respuesta no muy larga.";
+  const YOUR_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+  const CONTEXT = process.env.REACT_APP_OPENAI_CONTEXT;
+
+  useEffect(() => {
+    let currentText = "";
+    const interval = setInterval(() => {
+      if (currentText.length < textGenerated.length) {
+        currentText += textGenerated[currentText.length];
+        setDisplayedText(currentText);
+      } else {
+        clearInterval(interval);
+      }
+    }, 50); // El número aquí es el tiempo en ms entre cada letra. Puedes ajustarlo según lo rápido que quieras que sea la animación.
+
+    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
+  }, [textGenerated]);
 
   useEffect(() => {
     if (props.params) {
@@ -58,7 +71,7 @@ const ResponseGenerated = (props) => {
     if (!props.budgetData || Object.keys(props.budgetData).length === 0) {
       setTextGenerated("Por favor, ingresa datos para obtener una respuesta.");
       setKeyCounter((prev) => prev + 1);
-      return; // Termina la ejecución aquí si no hay datos
+      return;
     }
 
     const userMessageContent = props.budgetData;
@@ -129,36 +142,55 @@ const ResponseGenerated = (props) => {
     }
   };
 
+  function formatText(text) {
+    const splitText = text.split(/(?=\d\.)/g);
+    return (
+      <div style={{ fontSize: "2em", textAlign: "start", padding: "0.5em" }}>
+        {splitText.map((part, index) => {
+          if (/^\d\./.test(part)) {
+            return (
+              <ol key={index} style={{ padding: "1em", marginBottom: "0" }}>
+                {part.split(/(?=\d\.)/g).map((item, itemIndex) => (
+                  <li key={itemIndex}>{item.replace(/^\d\.\s*/, "").trim()}</li>
+                ))}
+              </ol>
+            );
+          }
+          return <div key={index}>{part}</div>;
+        })}
+      </div>
+    );
+  }
+
   return (
-   
-      <div style={{width: "100%"}}>
-        <div className="d-flex justify-content-center" style={{gap: "1%"}}>
-          <button
-            onClick={handleResponseFromAI}
-            className="btn btn-ia"
-            style={{minWidth: "112px"}}
-          >
-            <div className="d-flex align-items-center ">
-              <PromptLogo style={{width: "35%"}} className="svg-logo" />
-              <span style={{width: "100%"}}>Generar</span>
-            </div>
-          </button>
-          <div className="description" style={{lineHeight: "18px"}}>
-            Genera tu asesoramiento financiero con inteligencia artificial
+    <div style={{ width: "100%" }}>
+      <div className="d-flex justify-content-center" style={{ gap: "1%" }}>
+        <button
+          onClick={handleResponseFromAI}
+          className="btn btn-ia"
+          style={{ minWidth: "112px" }}
+        >
+          <div className="d-flex align-items-center ">
+            <PromptLogo style={{ width: "35%" }} className="svg-logo" />
+            <span style={{ width: "100%" }}>Generar</span>
           </div>
-        </div>
-        <div className="response-style mt-3">
-          {textGenerated && (
-            <TypeAnimation
-              key={keyCounter}
-              sequence={[2000, textGenerated, 2000]}
-              cursor={true}
-              repeat={0}
-              style={{ fontSize: "2em" }}
-            />
-          )}
+        </button>
+        <div
+          className="description"
+          style={{
+            lineHeight: "18px",
+            textAlign: "start",
+            padding: "0.5",
+            paddingTop: "0",
+          }}
+        >
+          Genera tu asesoramiento financiero con inteligencia artificial
         </div>
       </div>
+      <div className="response-style mt-3">
+        {displayedText && <>{formatText(displayedText)}</>}
+      </div>
+    </div>
   );
 };
 
