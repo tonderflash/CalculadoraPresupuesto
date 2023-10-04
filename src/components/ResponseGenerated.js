@@ -142,22 +142,51 @@ const ResponseGenerated = (props) => {
     }
   };
 
+  // function formatText(text) {
+  //   const splitText = text.split(/(?=\d\.)/g);
+  //   return (
+  //     <div style={{ fontSize: "2em", textAlign: "start", padding: "0.5em" }}>
+  //       {splitText.map((part, index) => {
+  //         if (/^\d\./.test(part)) {
+  //           return (
+  //             <ol key={index} style={{ padding: "1em", marginBottom: "0" }}>
+  //               {part.split(/(?=\d\.)/g).map((item, itemIndex) => (
+  //                 <li key={itemIndex}>{item.replace(/^\d\.\s*/, "").trim()}</li>
+  //               ))}
+  //             </ol>
+  //           );
+  //         }
+  //         return <div key={index}>{part}</div>;
+  //       })}
+  //     </div>
+  //   );
+  // }
+
   function formatText(text) {
     const splitText = text.split(/(?=\d\.)/g);
+
     return (
       <div style={{ fontSize: "2em", textAlign: "start", padding: "0.5em" }}>
-        {splitText.map((part, index) => {
-          if (/^\d\./.test(part)) {
-            return (
-              <ol key={index} style={{ padding: "1em", marginBottom: "0" }}>
-                {part.split(/(?=\d\.)/g).map((item, itemIndex) => (
-                  <li key={itemIndex}>{item.replace(/^\d\.\s*/, "").trim()}</li>
-                ))}
-              </ol>
-            );
-          }
-          return <div key={index}>{part}</div>;
-        })}
+        <ol style={{ padding: "1em", marginBottom: "0" }}>
+          {splitText.map((part, index) => {
+            if (/^\d\./.test(part)) {
+              return (
+                <li style={{ margin: "5px" }} key={index}>
+                  {part.replace(/^\d\.\s*/, "").trim()}
+                </li>
+              );
+            } else {
+              return (
+                <div
+                  key={index}
+                  style={{ listStyleType: "none", marginBottom: "1em" }}
+                >
+                  {part}
+                </div>
+              );
+            }
+          })}
+        </ol>
       </div>
     );
   }
