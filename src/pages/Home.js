@@ -51,8 +51,8 @@ const Home = () => {
 
   return (
     <div>
-      <div className="">
-        <div className="p-2 m-2 mb-2 pb-1 mt-4 text-white">
+      <div style={{ maxWidth: "951px" }}>
+        <div className="p-2 m-2 mb-2 pb-1 mt-4 text-black">
           <h3>Calculadora de Presupuesto</h3>
           <h4 style={{ fontWeight: 200 }} className="font-weight-200">
             Aprende a tomar Control de tus gastos
@@ -167,23 +167,21 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 mb-3 text-center">
-                    <div
-                      style={{
-                        borderRadius: "10px",
-                        backgroundColor: "#f5eef6",
-                        justifyContent: "center",
-                        width: "100%",
-                        padding: "5px",
-                        alignItems: "center",
-                      }}
-                      className="d-flex mb-3"
-                    >
-                      <ResponseGenerated budgetData={budgetExpenses} />
-                    </div>
-                    <div></div>
-                  </div>
                 </div>
+              </div>
+            </div>
+            <div className="mt-3 mb-3 text-center d-flex">
+              <div
+                style={{
+                  borderRadius: "10px",
+                  backgroundColor: "#f5eef6",
+                  width: "100%",
+                  padding: "5px",
+                  alignItems: "center",
+                }}
+                className="d-flex mb-3 width-100"
+              >
+                <ResponseGenerated budgetData={budgetExpenses} />
               </div>
             </div>
           </div>

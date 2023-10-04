@@ -42,31 +42,40 @@
 .description {
   font-size: 16px; /* Ajusta según tus preferencias */
   color: #555; /* Color de texto elegante */
-  max-width: 300px; /* Ajusta según tus preferencias */
+  width: 50%;
   text-align: left;
 }
 
 .btn-success.w-100 {
   width: 100%;
 }
-
+.button-description-box {
+  display: flex;
+}
 /* iphone*/
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
   .btn-ia {
-      height: 54px!important;
+    height: 54px !important;
   }
   .description {
-      text-align: center;
+    text-align: center;
+  }
+  .button-description-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 768px) {
   .description {
-    /* max-width: 200px; */
+    width: 100%;
+    text-align: center !important;
   }
 
   .btn-ia {
-    padding: 5px 10px !important; /* Reduce el padding para dispositivos móviles */
+    padding: 5px 10px !important;
+    width: 100% !important;
     height: 53px;
   }
 
