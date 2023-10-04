@@ -20,7 +20,7 @@ const ResponseGenerated = (props) => {
       } else {
         clearInterval(interval);
       }
-    }, 50); // El número aquí es el tiempo en ms entre cada letra. Puedes ajustarlo según lo rápido que quieras que sea la animación.
+    }, 20);
 
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
   }, [textGenerated]);
@@ -166,12 +166,18 @@ const ResponseGenerated = (props) => {
     const splitText = text.split(/(?=\d\.)/g);
 
     return (
-      <div style={{ fontSize: "2em", textAlign: "start", padding: "0.5em" }}>
+      <div
+        style={{
+          fontSize: "2em",
+          textAlign: "start",
+          padding: "0.5em",
+        }}
+      >
         <ol style={{ padding: "1em", marginBottom: "0" }}>
           {splitText.map((part, index) => {
             if (/^\d\./.test(part)) {
               return (
-                <li style={{ margin: "5px" }} key={index}>
+                <li style={{ margin: "5px", marginBottom: "10px" }} key={index}>
                   {part.replace(/^\d\.\s*/, "").trim()}
                 </li>
               );
@@ -193,15 +199,18 @@ const ResponseGenerated = (props) => {
 
   return (
     <div style={{ width: "100%" }}>
-      <div className="d-flex justify-content-center" style={{ gap: "1%" }}>
+      <div
+        className="button-description-box"
+        style={{ gap: "3%", margin: "1em" }}
+      >
         <button
           onClick={handleResponseFromAI}
           className="btn btn-ia"
-          style={{ minWidth: "112px" }}
+          style={{ minWidth: "112px", width: "47%" }}
         >
-          <div className="d-flex align-items-center ">
-            <PromptLogo style={{ width: "35%" }} className="svg-logo" />
-            <span style={{ width: "100%" }}>Generar</span>
+          <div className="d-flex align-items-center justify-content-center ">
+            <PromptLogo style={{ width: "23px" }} className="svg-logo" />
+            <span>Generar</span>
           </div>
         </button>
         <div
@@ -213,10 +222,11 @@ const ResponseGenerated = (props) => {
             paddingTop: "0",
           }}
         >
-          Genera tu asesoramiento financiero con inteligencia artificial
+          Genera tu asesoramiento financiero con inteligencia artificial solo en
+          cooperativa barcelona.
         </div>
       </div>
-      <div className="response-style mt-3">
+      <div className="response-style" style={{ margin: "2em" }}>
         {displayedText && <>{formatText(displayedText)}</>}
       </div>
     </div>
